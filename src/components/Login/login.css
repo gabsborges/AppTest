@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+.login {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #16213E;
+    background-repeat: no-repeat;
+}
+
+.login-area {
+    width: 350px;
+    padding: 18px 15px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+    align-items: center;
+}
+
+.email, .password {
+    display: flex;
+    flex-direction: column;
+}
+
+.email, .password {
+    animation-name: Upper;
+    animation-duration: 1000ms;
+}
+
+.password p {
+    color: red;
+    margin: 0;
+    font-weight: 400;
+}
+
+.login-area button {
+    align-items: center;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 8px;
+    width: 40%;
+    border: 1px solid;
+    margin: 12px 0;
+    animation-name: Upper;
+    animation-duration: 1000ms;
+}
+
+.accounts {
+    display: flex;
+    flex-direction: row;
+    margin-top: 8px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.accounts a {
+    color: white;
+    margin-right: 10px;
+    animation-name: Upper;
+    animation-duration: 1100ms;
+}
+
+.accounts a:hover {
+    color: #0dc5c1;
+}
+
+.ErrorLogin {
+    display: none;
+}
+
+.errorShake {
+    animation-name: ErrorShake;
+    animation-duration: 500ms;
+}
+
+@keyframes Upper {
+    0% {
+        opacity: 0;
+        transform: translateY(45px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+@keyframes ErrorShake {
+    10%, 90% {
+        transform: translate3d(-1px, 0, 0);
+      }
+      
+      20%, 80% {
+        transform: translate3d(2px, 0, 0);
+      }
+    
+      30%, 50%, 70% {
+        transform: translate3d(-4px, 0, 0);
+      }
+    
+      40%, 60% {
+        transform: translate3d(4px, 0, 0);
+      }
+    }
+
+    .loader {
+        width: 20px;
+        height: 20px;
+        border: 5px solid #0dc5c1;
+        border-bottom-color: transparent;
+        border-radius: 50%;
+        display: inline-block;
+        box-sizing: border-box;
+        animation: rotation 1s linear infinite;
+        }
+    
+        @keyframes rotation {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+        } 

@@ -1,0 +1,53 @@
+.forgotAccount {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #16213E;
+    background-repeat: no-repeat;
+}
+
+.forgotAccount-area {
+    width: 350px;
+    padding: 18px 15px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+    align-items: center;
+    color: white;
+}
+
+.forgotAccount-area h1 {
+    margin-bottom: 10px;
+    letter-spacing: 3px;
+    animation-name: Upper;
+    animation-duration: 1100ms;
+}
+
+.forgotAccount-area h3 {
+    font-weight: 400;
+    margin-bottom: 30px;
+    animation-name: Upper;
+    animation-duration: 1100ms;
+}
+
+.forgotAccount-area button {
+    align-items: center;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 8px;
+    width: 40%;
+    border: 1px solid;
+    margin: 12px 0;
+    animation-name: Upper;
+    animation-duration: 1000ms;
+}
+
+.forgotAccount-area .accounts {
+    width: 100%;
+    margin-top: 20px;
+    justify-content: space-around;
+}
