@@ -1,0 +1,205 @@
+.dashboardMain {
+    margin: 0 auto;
+    width: 80%;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.addTask-area {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.addTask-area button {
+    cursor: pointer;
+}
+
+.addTask-area button:active {
+    transform: scale(1.1);
+}
+
+.addTask-area input {
+    margin: 0 10px 0 0;
+    animation-name: righter;
+    animation-duration: 500ms;
+}
+
+
+/* CSS */
+.addTask-area button {
+  align-items: center;
+  border: 1px solid transparent;
+  border-radius: .25rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  margin: 10px 10px 10px 0;
+  padding: 6px 14px;
+  vertical-align: baseline;
+  width: auto;
+  align-items: center;
+  font-weight: 600;
+  border: 1px solid;
+  animation-name: fade;
+  animation-duration: 1000ms;
+  background-color: transparent;
+  color: white;
+  transition: 800ms;
+}
+
+.addTask-area button:hover,
+.addTask-area button:focus {
+    background: linear-gradient(#DEF5E5, #8EC3B0);
+    color: black;
+}
+
+.addTask-area button:hover {
+  transform: translateY(-1px);
+}
+
+@keyframes righter {
+    0% {
+        opacity: 0;
+        transform: translateX(-45px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+.dashboardMain h1 {
+    color: #fff;
+    margin: 10px 0;
+}
+
+.preview {
+    margin: 10px 0;
+}
+
+.preview label {
+    margin: 0;
+}
+
+.list-preview {
+    background-color: rgb(255, 255, 255);
+    color: black;
+    border-radius: 15px;
+    margin: 10px 0;
+    min-width: 100px;
+    min-height: 100px;
+    max-width: 650px;
+}
+
+.list-preview h1 {
+    color: black;
+    padding: 12px 0 0 16px;
+    margin: 0;
+}
+
+.list-preview p {
+    padding: 16px;
+}
+
+.listTask-wrapper {
+    margin: 0 auto;
+    width: 65%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.listTask {
+    cursor: pointer;
+    height: 80px;
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 10px;
+    margin: 6px;
+    animation-name: fade;
+    animation-duration: 800ms;
+}
+
+.listTask-div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.listTask-texto h1 {
+    color: black;
+    margin: 3px 0;
+}
+
+.listTask-texto p {
+    max-width: 180px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+        scale: (0);
+    }
+    100% {
+        opacity: 1;
+        scale: (1);
+    }
+}
+
+.delete-task {
+    border: none;
+    margin: 10px;  
+    cursor: pointer;
+}
+
+.delete-task i {
+    font-size: 20px;
+    padding: 3px;
+    border: none;  
+    cursor: pointer; 
+}
+
+.modal {
+    position: fixed;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 25px;
+    display: none;
+    width: 400px;
+    height: 200px;
+    left: 200px;
+    top: 40px;
+    color: black;
+    padding: 10px;
+}
+
+.modal-body h4 {
+    margin: 5px;
+    font-size: 24px;
+}
+
+.modal-footer { 
+    text-align: center;
+}
+
+.modal-footer button {
+    align-items: center;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 6px;
+    border: 1px solid;
+    margin-top: 10px;
+}

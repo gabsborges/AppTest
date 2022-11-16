@@ -8,6 +8,7 @@ import {signInWithEmailAndPassword } from 'firebase/auth'
 import { useNavigate } from 'react-router-dom'
 
 import { toast } from 'react-toastify'
+import Logo from '../components/Logo/Logo'
 
 export default function Login() {
 
@@ -48,6 +49,7 @@ export default function Login() {
 
     return (
         <div className='login'>
+            <Logo />
             <form onSubmit={handleLogin}>
                 <div className='login-area'>
                     <div className='email'>
@@ -57,7 +59,7 @@ export default function Login() {
 
                     <div className='password'>
                         <label htmlFor="password"><b>Password</b></label>
-                        <input type="password" className={errorShake} value={password} onChange={(e) => {setPassword(e.target.value)}} name="password" autoComplete='on' required />
+                        <input type="password" placeholder='********' className={errorShake} value={password} onChange={(e) => {setPassword(e.target.value)}} name="password" autoComplete='on' required />
                         <p className={errorUserPass}>Invalid Username/Password</p>
                     </div>
 

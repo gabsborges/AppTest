@@ -33,7 +33,16 @@
     animation-duration: 1100ms;
 }
 
+.forgotAccount-area span {
+    background: linear-gradient(#DEF5E5, #8EC3B0);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 500;
+}
+
 .forgotAccount-area button {
+    cursor: pointer;
     align-items: center;
     border-radius: 10px;
     font-size: 16px;
@@ -44,6 +53,14 @@
     margin: 12px 0;
     animation-name: Upper;
     animation-duration: 1000ms;
+    background-color: transparent;
+    color: white;
+    transition: 1000ms;
+}
+
+.forgotAccount-area button:hover {
+    background: linear-gradient(#DEF5E5, #8EC3B0);
+    color: black;
 }
 
 .forgotAccount-area .accounts {

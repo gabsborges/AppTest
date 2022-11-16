@@ -53,6 +53,7 @@ input {
 }
 
 .createAccount-area button {
+    cursor: pointer;
     align-items: center;
     border-radius: 10px;
     font-size: 16px;
@@ -63,4 +64,12 @@ input {
     margin: 12px 0;
     animation-name: Upper;
     animation-duration: 1000ms;
+    background-color: transparent;
+    color: white;
+    transition: 1000ms;
+}
+
+.createAccount-area button:hover {
+    background: linear-gradient(#DEF5E5, #8EC3B0);
+    color: black;
 }

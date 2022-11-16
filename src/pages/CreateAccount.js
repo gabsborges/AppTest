@@ -2,15 +2,22 @@ import '../App.css'
 import '../components/CreateAccount/CreateAccount.css'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
+import { auth } from '../services/firebaseConection'
+import {createUserWithEmailAndPassword } from 'firebase/auth'
+import { toast } from 'react-toastify'
+import { useNavigate } from 'react-router-dom'
+import Logo from '../components/Logo/Logo'
 
 export default function CreateAccount() {
 
+    const [email, setEmail] = useState('')
     const [firstPassword, setFirstPassword] = useState('')
     const [seccondPassword, setSeccondPassword] = useState('')
     const [samePassword, setSamePassword] = useState(false)
     const [errorUserPass, setErrorUserPass] = useState('ErrorLogin')
     const [errorShake, setErrorShake] = useState('')
 
+    const navigate = useNavigate()
 
     function aprovePassword() {
         if (firstPassword === seccondPassword) {
@@ -24,36 +31,45 @@ export default function CreateAccount() {
     function handleCreateAccount(event) {
         event.preventDefault()
         aprovePassword()
-        console.log(firstPassword)
+        if (samePassword === true) {
+            createUserWithEmailAndPassword(auth, email, firstPassword)
+            .then(() => {
+                toast.success("Account Created")
+                navigate('/dashboard', { replace: true })
+                console.log(" passou")
+            })
+            .catch(() => {
+                toast.error('Ocorreu algum erro, por favor tente novamente!')
+                console.log("Não passou")
+            })
+        }
+        
     }
+
 
     return (
         <div className='createAccount'>
+            <Logo />
             <form onSubmit={handleCreateAccount}>
                 <div className='createAccount-area'>
 
-                    <div className='username'>
-                        <label htmlFor="username">Username:</label>
-                        <input type="text" id="username" name="username" required />
-                    </div>
-
                     <div className='email'>
                         <label htmlFor="email">E-mail:</label>
-                        <input type="text" id="email" name="email" required />
+                        <input type="text" value={email} onChange={(e) => {setEmail(e.target.value)}} id="email" name="email" required />
                     </div>
 
                     <div className='password'>
                         <label htmlFor="password">Password:</label>
-                        <input type="text" className={errorShake}  value={firstPassword} onChange={(e) => {setFirstPassword(e.target.value)}} id="password" name="password" required />
+                        <input type="password" className={errorShake}  value={firstPassword} onChange={(e) => {setFirstPassword(e.target.value)}} id="password" name="password" required />
                     </div>
 
                     <div className='confirmPassword'>
                         <label htmlFor="confirmPassword">Confirm Password:</label>
-                        <input type="text" className={errorShake}  value={seccondPassword} onChange={(e) => {setSeccondPassword(e.target.value)}} id="confirmPassword" name="confirmPassword" required />
+                        <input type="password" className={errorShake}  value={seccondPassword} onChange={(e) => {setSeccondPassword(e.target.value)}} id="confirmPassword" name="confirmPassword" required />
                         <p className={errorUserPass}>both passwords must match</p>
                     </div>
 
-                    <button type="submit">Login</button>
+                    <button type="submit">Create</button>
 
                     <div className='accounts'>
                         <Link to='/'>already have an account?</Link>

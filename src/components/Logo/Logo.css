@@ -1,0 +1,13 @@
+.logo h1 {
+    font-size: 42px;
+    color: #fff;
+    animation-name: Upper;
+    animation-duration: 1000ms;
+}
+
+.logo span {
+    background: linear-gradient(#DEF5E5, #8EC3B0);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

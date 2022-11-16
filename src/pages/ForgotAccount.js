@@ -1,14 +1,16 @@
 import '../App.css'
 import '../components/ForgotAccount/ForgotAccount.css'
 import { Link } from 'react-router-dom'
+import Logo from '../components/Logo/Logo'
 
 export default function ForgotAccount() {
     return (
         <div className='forgotAccount'>
+            <Logo />
             <form>
                 <div className='forgotAccount-area'>
                     <h1>Account recovery</h1>
-                    <h3>Recover your AppTest Account</h3>
+                    <h3>Recover your M.<span>Task</span> Account</h3>
 
                     <div className='email'>
                         <label htmlFor="email">Insert your e-mail</label>
