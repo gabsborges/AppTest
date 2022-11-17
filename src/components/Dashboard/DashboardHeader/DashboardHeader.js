@@ -16,10 +16,10 @@ export default function DashboardHeader() {
             <div className='dashboardHeader-area'>
                 <div className='dashboardHeader-user'>
                     <i className="fa-solid fa-user"></i>
-                    <p>Hello, <strong>{userName.replace('@teste.com', "")}</strong></p>
+                    <p>Hello, <strong>{userName.replace('@rinobox.com.br', "")}</strong></p>
                 </div>
                 <ul>
-                    <li>Task</li>
+                    <li>Tasks</li>
                     <li>Completed</li>
                 </ul>
                 <i onClick={handleLogout} className="fa-solid fa-right-from-bracket logout"></i>

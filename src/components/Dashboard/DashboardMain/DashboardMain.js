@@ -1,22 +1,18 @@
 import { useEffect, useState } from 'react'
 import './DashboardMain.css'
 import { db } from '../../../services/firebaseConection'
-import { addDoc, collection, onSnapshot, query, orderBy, doc, deleteDoc } from 'firebase/firestore'
+import { collection, onSnapshot, query, orderBy, doc, deleteDoc } from 'firebase/firestore'
 import { toast } from 'react-toastify'
-
+import DashboardCreateTask from '../DashboardCreateTask/DashboardCreateTask'
 
 export default function DashboardMain() {
-
-    const [showDiv, setShowDiv] = useState('disable')
-    const [taskName, setTaskName] = useState('')
-    const [task, setTask] = useState('')
 
     const [links, setLinks] = useState([])
 
     useEffect(() => {
 
         const linksRef = collection(db, "tasks")
-        const queryRef = query(linksRef, orderBy("created", "asc"))
+        const queryRef = query(linksRef, orderBy("created", "desc"))
 
         const unsub = onSnapshot(queryRef, (snapshot) => {
             let lista = [];
@@ -34,73 +30,29 @@ export default function DashboardMain() {
 
     }, [])
 
-    function showInput() {
-        if (showDiv === 'disable'){
-            setShowDiv('')
-        } else {
-            setShowDiv('disable')
-        }
-    }
-
-    function createTask(e) {
-        if (task === '' || taskName === "") {
-            toast.warn("Preenche todos os campos!")
-            return
-        }
-        
-        addDoc(collection(db, "tasks"), {
-            name: taskName,
-            infos: task,
-            created: new Date(),
-        })
-        .then(() => {
-            setTaskName('')
-            setTask('')
-            toast.success("Task Created")
-        })
-        .catch((error) => {
-            console.log("Erro ao registrar" + error)
-            toast.error('Ocorreu algum erro')
-        })
-    }
-
     async function handleDeleteLink(id) {
         const docRef = doc(db, "tasks", id)
         await deleteDoc(docRef)
     }
 
-
     return (
         <div className='dashboardMain'>
-            <div className='addTask-area'>
-                <button onClick={showInput} className='adicionarTask'><i className="fa-solid fa-plus"></i></button>
-                <input type="text" placeholder='Name' className={showDiv} value={taskName} onChange={(e) => { setTaskName(e.target.value) }} name="taskName" required />
-                <input type="text" placeholder='Task' className={showDiv} value={task} onChange={(e) => { setTask(e.target.value) }} name="task" required />
-                <button type="submit" onClick={createTask} className={showDiv}>Create Task</button>
-            </div>
-            {taskName !== "" && (
-                <div className='preview'>
-                    <label className='list'>Task to be created</label>
-                    <article className='list-preview' >
-                        <h1>{taskName}</h1>
-                        <p>{task}</p>
-                    </article>
-                </div>
-            )}
+            <DashboardCreateTask />
 
-            <h1>Tasks</h1>
+            <h1>{links.length} Tasks</h1>
 
             <div className='listTask-wrapper'>
                 {links.map((item, index) => {
                     return (
                         <article key={index} className='listTask'>
-                            <div className='listTask-div'>
+                            <div className='listTask-div' >
                                 <div className='listTask-texto'>
                                     <h1>{item.name}</h1>
                                     <p>{item.infos}</p>
                                 </div>
-                                <div className='delete-task' onClick={() => handleDeleteLink(item.id)}>
-                                    <button><i className="fa-solid fa-trash"></i></button>
+                                <div className='delete-task' >
+                                    <button onDoubleClick={() => handleDeleteLink(item.id)}><i className="fa-solid fa-trash"></i></button>
+                                    <button className='buttonCompleted'><i className="fa-solid fa-check" ></i></button>
                                 </div>
                             </div>
                         </article>

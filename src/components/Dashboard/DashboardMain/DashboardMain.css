@@ -29,6 +29,16 @@
     animation-duration: 500ms;
 }
 
+.addTask-area textarea {
+    border-radius: 10px;
+    padding: 8px 10px;
+    border: 1px solid;
+    margin: 0 10px 0 0;
+    animation-name: righter;
+    animation-duration: 500ms;
+    font-size: 16px;
+}
+
 
 /* CSS */
 .addTask-area button {
@@ -112,18 +122,20 @@
 .listTask-wrapper {
     margin: 0 auto;
     width: 65%;
+    height: 400px;
+    padding: 20px 0;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
+    overflow-y: scroll;
 }
 
 .listTask {
     cursor: pointer;
-    height: 80px;
+    max-width: 400px;
     background-color: #fff;
     border-radius: 15px;
-    padding: 10px;
+    padding: 14px 8px;
     margin: 6px;
     animation-name: fade;
     animation-duration: 800ms;
@@ -137,14 +149,13 @@
 
 .listTask-texto h1 {
     color: black;
-    margin: 3px 0;
+    margin: 5px 0;
 }
 
 .listTask-texto p {
-    max-width: 180px;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
+    max-width: 340px;
+    text-align: left;
+
 }
 
 @keyframes fade {
@@ -160,8 +171,14 @@
 
 .delete-task {
     border: none;
-    margin: 10px;  
+    margin: 4px;  
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+
+.delete-task button {
+    margin: 4px;
 }
 
 .delete-task i {
@@ -171,35 +188,25 @@
     cursor: pointer; 
 }
 
-.modal {
-    position: fixed;
-    background-color: white;
-    border: 1px solid black;
-    border-radius: 25px;
-    display: none;
-    width: 400px;
-    height: 200px;
-    left: 200px;
-    top: 40px;
-    color: black;
-    padding: 10px;
+.delete-task i:hover {
+    animation: flick 500ms;
 }
 
-.modal-body h4 {
-    margin: 5px;
-    font-size: 24px;
+@keyframes flick {
+    0% {
+        transform: rotatez(15deg);
+    }
+    25% {
+        transform: rotatez(-15deg);
+    }
+    50% {
+        transform: rotatez(15deg);
+    }
+    100% {
+        transform: rotatez(0deg);
+    }
 }
 
-.modal-footer { 
-    text-align: center;
-}
-
-.modal-footer button {
-    align-items: center;
-    border-radius: 10px;
-    font-size: 16px;
-    font-weight: 600;
-    padding: 6px;
-    border: 1px solid;
-    margin-top: 10px;
+.completed {
+    background-color: #54B435;
 }

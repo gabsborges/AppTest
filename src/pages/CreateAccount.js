@@ -16,6 +16,8 @@ export default function CreateAccount() {
     const [samePassword, setSamePassword] = useState(false)
     const [errorUserPass, setErrorUserPass] = useState('ErrorLogin')
     const [errorShake, setErrorShake] = useState('')
+    const [buttonLogin, setButtonLogin] = useState('')
+    const [buttonLoader, setButtonLoader] = useState('loader disable')
 
     const navigate = useNavigate()
 
@@ -34,6 +36,8 @@ export default function CreateAccount() {
         if (samePassword === true) {
             createUserWithEmailAndPassword(auth, email, firstPassword)
             .then(() => {
+                setButtonLogin('disable')
+                setButtonLoader('loader')
                 toast.success("Account Created")
                 navigate('/dashboard', { replace: true })
                 console.log(" passou")
@@ -69,7 +73,7 @@ export default function CreateAccount() {
                         <p className={errorUserPass}>both passwords must match</p>
                     </div>
 
-                    <button type="submit">Create</button>
+                    <button type="submit"><div className={buttonLoader}></div><span className={buttonLogin}>Create</span></button>
 
                     <div className='accounts'>
                         <Link to='/'>already have an account?</Link>
