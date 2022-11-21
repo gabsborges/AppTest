@@ -7,6 +7,7 @@ import Dashboard from './pages/Dashboard';
 import NonPage from './pages/NonPage';
 
 import Private from './routes/Private';
+import Tasks from './pages/Tasks';
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
   {
     path: '/dashboard',
     element: <Private><Dashboard /></Private>
+  },
+  {
+    path: '/tasks',
+    element: <Private><Tasks /></Private>
   },
   {
     path: '*',

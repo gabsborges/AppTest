@@ -27,6 +27,10 @@
     margin: 0 20px;
 }
 
+.dashboardHeader-area a {
+    color: white;
+}
+
 .dashboardHeader-user {
     display: flex;
     flex-direction: row;

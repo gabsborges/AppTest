@@ -20,8 +20,8 @@ a, ul, li {
   display: none !important;
 }
 
-.dashboard {
+.dashboard, .tasks {
   width: 100%;
-  height: 110vh;
+  height: 100vh;
   background-color: #16213E;
 }

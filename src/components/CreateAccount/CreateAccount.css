@@ -18,12 +18,18 @@
     align-items: center;
 }
 
-.username, .password, .email, .confirmPassword {
+.username,
+.password,
+.email,
+.confirmPassword {
     display: flex;
     flex-direction: column;
 }
 
-.username, .password, .email, .confirmPassword {
+.username,
+.password,
+.email,
+.confirmPassword {
     animation-name: Upper;
     animation-duration: 1000ms;
 }
@@ -34,7 +40,7 @@
     font-weight: 400;
 }
 
- label {
+label {
     font-size: 18px;
     margin-top: 4px;
     margin-left: 5px;
